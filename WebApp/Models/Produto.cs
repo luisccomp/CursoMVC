@@ -13,6 +13,7 @@ namespace WebApp.Models
 
         [Required(ErrorMessage = "O campo preço é obrigatório.")]
         [Display(Name = "Preço")]
+        [DataType(DataType.Currency)]
         public decimal Preco { get; set; }
         public long CategoriaId { get; set; }
         public Categoria Categoria { get; set; }
