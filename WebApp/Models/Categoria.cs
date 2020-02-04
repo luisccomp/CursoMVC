@@ -10,6 +10,6 @@ namespace WebApp.Models
         [Required(ErrorMessage = "O campo descrição é obrigatório.")]
         [Display(Name = "Descrição")]
         public string Descricao { get; set; }
-        public List<Produto> Produtos { get; set; }
+        // public List<Produto> Produtos { get; set; }
     }
 }
