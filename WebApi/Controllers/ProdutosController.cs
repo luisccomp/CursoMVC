@@ -24,14 +24,17 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Produto>>> GetProdutos()
         {
-            return await _context.Produtos.ToListAsync();
+            // Use "Include" to query what I want to include with response
+            return await _context.Produtos.Include("Categoria").ToListAsync();
         }
 
         // GET: api/Produtos/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Produto>> GetProduto(long id)
         {
-            var produto = await _context.Produtos.FindAsync(id);
+            // Change the following line for the one below this one.
+            // var produto = await _context.Produtos.FindAsync(id);
+            var produto = await _context.Produtos.Include("Categoria").FirstOrDefaultAsync(x => x.Id == id);
 
             if (produto == null)
             {
